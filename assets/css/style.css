@@ -1,0 +1,243 @@
+@font-face {
+    font-family: Gameplay;
+    src: url(../fond/Gameplay.ttf);
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Empêche le scrolling */
+}
+body{
+    background-image: url(../imgs/font.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+header {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+header img{
+    width: 30%;
+}
+.btns {
+    --text-base: 277deg, 55%, 40%;
+    --text-hover: 307deg, 72%, 86%;
+    --shadow-start: 52deg, 100%, 72%;
+    --shadow-end: 282deg, 90%, 50%;
+    --shadow-inner: 277deg, 90%, 62%;
+    all: unset;
+    color: hsla(57, 65%, 50%, 0.913);
+    text-shadow: 0 2px 5px #da1b1b, 0 4px 6px #e40c0c;
+    font-family: Gameplay;
+    font-size: 30px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 40px;
+    max-width: 100%;
+    width: 12em;
+    background: inherit;
+    background-clip: padding-box;
+    border: 5px solid hsla(240, 29%, 97%, 0.7);
+    border-radius: 2em;
+    cursor: pointer;
+    position: relative;
+    transition: 0.25s ease-out;
+}
+
+.btns::before,
+.btns::after {
+    content: "";
+    border-radius: inherit;
+    transition: inherit;
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.btns::before {
+    inset: -0.2em;
+    z-index: -1;
+    background: linear-gradient(hsla(var(--shadow-start), 1), hsla(var(--shadow-end), 1));
+    filter: blur(1.2em) saturate(1.2);
+    transform-origin: bottom;
+    transform: scaleY(0.5);
+    opacity: 0;
+}
+
+.btns::after {
+    box-shadow: inset 0 0 0 1px #b02929, 0 0 0 4px rgba(174, 37, 37, 0.7), 1px 1px 0 4px #be3030;
+    mix-blend-mode: overlay;
+    opacity: 0;
+}
+
+.btns:hover,
+.btns:focus {
+    color: hsla(var(--text-hover), 1);
+    border-color: transparent;
+    box-shadow: inset 0 1.4em 0 hsla(var(--shadow-inner), 0.1), inset 0 0 1.4em hsla(var(--shadow-inner), 0.32), 0 1px 1px hsla(var(--shadow-inner), 0.32);
+}
+
+.btns:hover::before,
+.btns:hover::after,
+.btns:focus::before,
+.btns:focus::after {
+    transform: none;
+    opacity: 1;
+}
+
+#score {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Gameplay;
+    color: #fff;
+    position: relative;
+}
+#menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    gap: 20px;
+
+}
+#score {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Gameplay;
+    color: #fff;
+    position: relative;
+    padding: 20px;
+    letter-spacing: 5px;
+    text-shadow: 0 2px 5px #da1b1b, 0 4px 6px #e40c0c;
+}
+.hidden {
+    display: none;
+}
+
+#options-menu {
+    color: rgb(252, 1, 1);
+    text-shadow: 0 1px 3px #ecd90bd7, 0 4px 6px #020001;
+    position: fixed;
+    width: 30%;
+    bottom: 20%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    background-color: #010101b0;
+    padding: 20px;
+    border-radius: 5px;
+    border: yellow 2px solid;
+    z-index: 1000;
+}
+
+.options-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: Gameplay;
+}
+
+.option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#options-menu button {
+    padding: 5px 10px;
+    cursor: pointer;
+    color: red;
+    font-family: Gameplay;
+    background-color: #eeee0421;
+}
+
+.volume-slider {
+
+    width: 50%;
+    height: 15px;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: linear-gradient(#c1c0c0, #f69125 20%, #f34141 80%, #e76a6a);
+    cursor: pointer;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #af984c;
+    cursor: pointer;
+}
+
+/* Style de la "track" (la barre de progression) */
+.volume-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 15px;
+    cursor: pointer;
+    background: linear-gradient(#c1c0c0, #FFF 20%, #bdbdbd 80%, #DDD);
+    border-radius: 5px;
+}
+
+
+.volume-slider:hover {
+    opacity: 1;
+}
+#gameContainer {
+    margin: auto;
+    width: fit-content; 
+    background-color: rgba(0, 0, 0, 0.936);
+
+}
+.row {
+    display: flex;
+}
+
+.cell {
+    width: 40px; 
+    height: 40px; 
+    background-size: cover;
+}
+#gameContainer img{
+    width: 30px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    background: none;
+}
+
+footer img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+footer p {
+    font-family: Bebas;
+    font-size: 12px;
+    text-align: center;
+    color: white;
+}
+
+.fin {
+    display: flex;
+    justify-content: center;
+}

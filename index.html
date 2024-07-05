@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Game</title>
+</head>
+
+<body>
+    
+    <header>
+        <img src="./assets/imgs/pngaaa.com-1948244.png" alt="">
+        
+    </header>
+    <main>
+        <div id="score"></div>
+        <div id="menu">
+            <button type="button" onclick="startParty" id="btnStart" class ="btns">START</button>
+            <button id="optionBtn" class="btns">Option</button>
+            <div id="options-menu" class="hidden">
+                <div class="options-content">
+                    <h2>Options</h2>
+                    <div class="option">
+                        <label for="sound-toggle">Sound</label>
+                        <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="50"></button>
+                        <button id="sound-toggle">On</button>
+                    </div>
+                    <div class="option">
+                        <button id="keybind-switch" class="dis">Switch Keybinds</button>
+                    
+                        <button id="show-credits" class="dis">Credits</button>
+                    </div>
+                    <button id="close-options" class="dis">Close</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="game" id="gameContainer"></div>
+            <p id="score"></p>
+        </div>
+        
+    </main>
+    <footer>
+        <audio id="son-type">
+            <source src="./assets/son/shoot.wav" type="audio/mp3">
+            <source src="./assets/son/SpaceIntro.mp3" type="audio/mp3">
+            <source src="./assets/son/SpaceGame.mp3" type="audio/mp3">
+        </audio>
+            <div class="fin">
+                <img src="./assets/imgs/copyright.png" alt="copyright">
+                <p> Marina Tacite</p>
+            </div>
+    </footer>
+    <script src="./assets/js/script.js"></script>
+
+
+</body>
+
+</html>
